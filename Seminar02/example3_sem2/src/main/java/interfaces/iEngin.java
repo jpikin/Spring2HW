@@ -1,4 +1,4 @@
-package ru.gb.interfaces;
+package interfaces;
 
 public interface iEngin {
     public  void startEngine();

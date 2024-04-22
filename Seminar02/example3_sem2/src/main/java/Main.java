@@ -1,8 +1,6 @@
-package ru.gb;
-
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import ru.gb.config.ProjectConfig;
-import ru.gb.domain.Car;
+import config.ProjectConfig;
+import domain.Car;
 
 public class Main {
     public static void main(String[] args) {

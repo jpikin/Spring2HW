@@ -33,9 +33,33 @@ public class UserRepository {
     public User save(User user) {
         String sql = "INSERT INTO userTable (firstName,lastName) VALUES ( ?, ?)";
         jdbc.update(sql, user.getFirstName(), user.getLastName());
-        return  user;
+        return user;
     }
 
-    //public void deleteById(int id)
-    //"DELETE FROM userTable WHERE id=?"
+    public void deleteById(int id) {
+        String sql = "DELETE FROM userTable WHERE id=" + id;
+        jdbc.update(sql);
+    }
+
+    public void updateUser(User user) {
+        String sql = "UPDATE userTable SET firstName = ?, lastName = ? WHERE id = ?";
+        jdbc.update(sql, user.getFirstName(), user.getLastName(), user.getId());
+    }
+
+    public User getOne(int id) {
+        String sql = "SELECT * FROM userTable WHERE id = ? " + id;
+        RowMapper<User> userRowMapper = ((rs, rowNum) -> {
+            User rowObject = new User();
+            rowObject.setId(rs.getInt("id"));
+            rowObject.setFirstName(rs.getString("firstName"));
+            rowObject.setLastName(rs.getString("lastName"));
+            return rowObject;
+        });
+        List<User> users = jdbc.query(sql,userRowMapper);
+        if (users.isEmpty()){
+            return null;
+        } else {
+            return jdbc.query(sql, userRowMapper).get(0);
+        }
+    }
 }

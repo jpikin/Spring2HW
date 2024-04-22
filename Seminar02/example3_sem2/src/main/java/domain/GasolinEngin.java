@@ -1,12 +1,12 @@
-package ru.gb.domain;
+package domain;
 
 import org.springframework.stereotype.Component;
-import ru.gb.interfaces.iEngin;
+import interfaces.iEngin;
 
 @Component
 public class GasolinEngin implements iEngin {
     @Override
     public void startEngine() {
-        System.out.println("GasolinEngin");
+        System.out.println("GasolineEngin");
     }
 }

@@ -1,9 +1,9 @@
-package ru.gb.config;
+package config;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ComponentScan(basePackages = "ru.gb.domain")
+@ComponentScan(basePackages = "domain")
 public class ProjectConfig {
 }

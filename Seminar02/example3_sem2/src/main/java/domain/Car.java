@@ -1,7 +1,7 @@
-package ru.gb.domain;
+package domain;
 
 import org.springframework.stereotype.Component;
-import ru.gb.interfaces.iEngin;
+import interfaces.iEngin;
 
 @Component
 public class Car {
