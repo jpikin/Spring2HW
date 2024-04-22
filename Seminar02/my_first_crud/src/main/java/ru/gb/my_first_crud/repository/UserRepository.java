@@ -47,7 +47,7 @@ public class UserRepository {
     }
 
     public User getOne(int id) {
-        String sql = "SELECT * FROM userTable WHERE id = ? " + id;
+        String sql = "SELECT * FROM userTable WHERE id = " + id;
         RowMapper<User> userRowMapper = ((rs, rowNum) -> {
             User rowObject = new User();
             rowObject.setId(rs.getInt("id"));
